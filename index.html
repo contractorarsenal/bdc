@@ -6,21 +6,29 @@
 <title>Black Diamond Construction | Wenatchee Valley's #1 Contractor</title>
 
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-10946388347"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  // Consent default — denied until user accepts banner
+  // Consent mode v2 — defaults denied only for EEA regions
+  // US traffic unaffected, preserving full measurement outside EEA
   gtag('consent', 'default', {
-    ad_storage: 'denied',
+    ad_storage:        'denied',
     analytics_storage: 'denied',
-    wait_for_update: 500
+    ad_user_data:      'denied',
+    ad_personalization:'denied',
+    wait_for_update:    500,
+    region: [
+      'AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR',
+      'DE','GR','HU','IE','IT','LV','LT','LU','MT','NL',
+      'PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB'
+    ]
   });
 
+  gtag('js', new Date());
   gtag('config', 'AW-10946388347');
 </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-10946388347"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -1550,25 +1558,18 @@ body.js-loaded .reveal.visible {
 </div>
 
 <script>
-  // Show banner only if no prior choice
   (function() {
     const choice = localStorage.getItem('bdc_consent');
     if (choice !== null) {
       document.getElementById('consentBanner').style.display = 'none';
-      // If previously accepted, fire gtag consent update
       if (choice === 'granted') {
         gtag('consent', 'update', {
-          ad_storage: 'granted',
-          analytics_storage: 'granted'
+          ad_storage:        'granted',
+          analytics_storage: 'granted',
+          ad_user_data:      'granted',
+          ad_personalization:'granted'
         });
       }
-    } else {
-      // Default deny until user chooses
-      gtag('consent', 'default', {
-        ad_storage: 'denied',
-        analytics_storage: 'denied',
-        wait_for_update: 500
-      });
     }
   })();
 
@@ -1581,8 +1582,10 @@ body.js-loaded .reveal.visible {
     localStorage.setItem('bdc_consent', state);
 
     gtag('consent', 'update', {
-      ad_storage: state,
-      analytics_storage: state
+      ad_storage:        state,
+      analytics_storage: state,
+      ad_user_data:      state,
+      ad_personalization:state
     });
   }
 </script>
