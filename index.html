@@ -11,6 +11,14 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+
+  // Consent default — denied until user accepts banner
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
+  });
+
   gtag('config', 'AW-10946388347');
 </script>
 
@@ -1475,6 +1483,109 @@ body.js-loaded .reveal.visible {
   <a href="tel:5096692760" class="float-btn float-call">&#9742; Call Now</a>
   <a href="#estimate" class="float-btn float-form">Free Estimate</a>
 </div>
+
+<!-- CONSENT BANNER -->
+<div id="consentBanner" style="
+  position:fixed;
+  bottom:0;left:0;right:0;
+  z-index:9998;
+  background:var(--obsidian);
+  border-top:2px solid var(--gold);
+  padding:20px 40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap;
+  box-shadow:0 -8px 40px rgba(0,0,0,0.4);
+  transform:translateY(0);
+  transition:transform 0.4s ease;
+">
+  <div style="flex:1;min-width:260px;">
+    <div style="
+      font-family:'Barlow Condensed',sans-serif;
+      font-weight:700;font-size:0.7rem;
+      letter-spacing:0.16em;text-transform:uppercase;
+      color:var(--gold);margin-bottom:6px;
+    ">Cookie &amp; Privacy Notice</div>
+    <p style="font-size:0.82rem;color:var(--silver);line-height:1.55;margin:0;">
+      We use cookies and similar technologies to improve your experience, analyze site traffic, and serve relevant ads (including via Google Ads). By clicking <strong style="color:var(--white);">Accept</strong>, you consent to our use of cookies.
+      <a href="https://www.wenatcheeblackdiamond.com/" target="_blank" style="color:var(--gold);text-decoration:underline;margin-left:4px;">Privacy Policy</a>
+    </p>
+  </div>
+  <div style="display:flex;gap:12px;flex-shrink:0;flex-wrap:wrap;">
+    <button onclick="handleConsent(false)" style="
+      padding:10px 22px;
+      background:transparent;
+      color:var(--silver);
+      font-family:'Barlow Condensed',sans-serif;
+      font-weight:700;font-size:0.85rem;
+      letter-spacing:0.1em;text-transform:uppercase;
+      border:1.5px solid rgba(255,255,255,0.2);
+      cursor:pointer;
+      transition:all 0.2s;
+      white-space:nowrap;
+    "
+    onmouseover="this.style.borderColor='rgba(255,255,255,0.5)';this.style.color='#fff'"
+    onmouseout="this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='var(--silver)'">
+      Decline
+    </button>
+    <button onclick="handleConsent(true)" style="
+      padding:10px 28px;
+      background:var(--gold);
+      color:var(--obsidian);
+      font-family:'Barlow Condensed',sans-serif;
+      font-weight:800;font-size:0.85rem;
+      letter-spacing:0.1em;text-transform:uppercase;
+      border:none;cursor:pointer;
+      clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
+      transition:background 0.2s,transform 0.15s;
+      white-space:nowrap;
+    "
+    onmouseover="this.style.background='#fff'"
+    onmouseout="this.style.background='var(--gold)'">
+      Accept All
+    </button>
+  </div>
+</div>
+
+<script>
+  // Show banner only if no prior choice
+  (function() {
+    const choice = localStorage.getItem('bdc_consent');
+    if (choice !== null) {
+      document.getElementById('consentBanner').style.display = 'none';
+      // If previously accepted, fire gtag consent update
+      if (choice === 'granted') {
+        gtag('consent', 'update', {
+          ad_storage: 'granted',
+          analytics_storage: 'granted'
+        });
+      }
+    } else {
+      // Default deny until user chooses
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500
+      });
+    }
+  })();
+
+  function handleConsent(accepted) {
+    const banner = document.getElementById('consentBanner');
+    banner.style.transform = 'translateY(100%)';
+    setTimeout(() => banner.style.display = 'none', 400);
+
+    const state = accepted ? 'granted' : 'denied';
+    localStorage.setItem('bdc_consent', state);
+
+    gtag('consent', 'update', {
+      ad_storage: state,
+      analytics_storage: state
+    });
+  }
+</script>
 
 <!-- SUCCESS MODAL -->
 <div id="successModal" style="
