@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Diamond Construction | Wenatchee Valley's #1 Contractor</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --white: #ffffff;
+  --off-white: #f4f5f6;
+  --silver-light: #e8eaed;
+  --silver: #c0c4cc;
+  --silver-dark: #8a8f9a;
+  --steel: #4a5160;
+  --obsidian: #0f1117;
+  --black: #000000;
+  --accent: #1a1d24;
+  --gold: #c9a84c;
+  --red: #c0392b;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--obsidian);
+  overflow-x: hidden;
+}
+
+/* ── STICKY NAV BAR ── */
+.sticky-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 64px;
+  background: rgba(255,255,255,0.96);
+  border-bottom: 1px solid var(--silver-light);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.08);
+}
+
+.nav-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+  color: var(--obsidian);
+  text-transform: uppercase;
+}
+
+.nav-logo span { color: var(--gold); }
+
+.nav-cta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.nav-phone {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  color: var(--steel);
+  text-decoration: none;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 10px 24px;
+  background: var(--obsidian);
+  color: var(--white);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-primary:hover {
+  background: var(--gold);
+  color: var(--obsidian);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 10px 24px;
+  background: transparent;
+  color: var(--obsidian);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid var(--obsidian);
+  cursor: pointer;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background: var(--obsidian);
+  color: var(--white);
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--obsidian);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://static.wixstatic.com/media/c6c86a_eb76ded4e4c94ec788e4cf42bc8d53ac~mv2.jpg/v1/fill/w_894,h_340,fp_0.50_0.50,q_80,usm_0.66_1.00_0.01,enc_auto/IMG_3908%206_JPG.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  opacity: 0.32;
+  transform: scale(1.05);
+  animation: heroZoom 12s ease-out forwards;
+}
+
+@keyframes heroZoom {
+  from { transform: scale(1.05); }
+  to   { transform: scale(1.0); }
+}
+
+/* silver diagonal overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(
+    115deg,
+    rgba(15,17,23,0.92) 0%,
+    rgba(15,17,23,0.70) 45%,
+    rgba(192,196,204,0.10) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 120px 60px 80px;
+  animation: fadeUp 0.9s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.4);
+  padding: 6px 16px;
+  margin-bottom: 28px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.hero-badge::before {
+  content: '★★★★★';
+  font-size: 0.7rem;
+  letter-spacing: 0;
+}
+
+.hero-heading {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(3.2rem, 7vw, 6.2rem);
+  line-height: 0.95;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.hero-heading em {
+  font-style: normal;
+  color: var(--silver);
+  display: block;
+  font-size: 0.62em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--silver);
+  line-height: 1.6;
+  max-width: 540px;
+  margin: 24px 0 40px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-hero-primary {
+  display: inline-block;
+  padding: 16px 40px;
+  background: var(--gold);
+  color: var(--obsidian);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  transition: all 0.2s;
+  box-shadow: 0 8px 32px rgba(201,168,76,0.35);
+}
+
+.btn-hero-primary:hover {
+  background: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(201,168,76,0.45);
+}
+
+.btn-hero-secondary {
+  display: inline-block;
+  padding: 16px 40px;
+  background: transparent;
+  color: var(--white);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid rgba(255,255,255,0.4);
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  transition: all 0.2s;
+}
+
+.btn-hero-secondary:hover {
+  border-color: var(--white);
+  background: rgba(255,255,255,0.08);
+}
+
+/* hero stats strip */
+.hero-stats {
+  position: absolute;
+  bottom: 0;
+  left: 0; right: 0;
+  z-index: 2;
+  display: flex;
+  background: rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+}
+
+.hero-stat {
+  flex: 1;
+  padding: 20px 32px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.hero-stat:last-child { border-right: none; }
+
+.hero-stat-number {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 2.2rem;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-size: 0.75rem;
+  color: var(--silver);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ── TRUST STRIP ── */
+.trust-strip {
+  background: var(--silver-light);
+  padding: 18px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--silver);
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+.trust-icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--gold);
+}
+
+/* ── SECTION WRAPPER ── */
+.section {
+  padding: 100px 60px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.section-heading {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--obsidian);
+  letter-spacing: -0.01em;
+}
+
+.section-heading span { color: var(--silver-dark); }
+
+/* ── SERVICES ── */
+.services-section {
+  background: var(--white);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-top: 56px;
+  background: var(--silver-light);
+}
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--white);
+  cursor: pointer;
+  group: true;
+}
+
+.service-card-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+  filter: grayscale(20%);
+}
+
+.service-card:hover .service-card-img {
+  transform: scale(1.06);
+  filter: grayscale(0%);
+}
+
+.service-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(10,12,18,0.88) 0%, rgba(10,12,18,0.1) 60%);
+  transition: background 0.3s;
+}
+
+.service-card:hover .service-card-overlay {
+  background: linear-gradient(0deg, rgba(10,12,18,0.92) 0%, rgba(10,12,18,0.3) 60%);
+}
+
+.service-card-content {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 28px 28px 32px;
+}
+
+.service-tag {
+  display: inline-block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.5);
+  padding: 3px 10px;
+  margin-bottom: 10px;
+}
+
+.service-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1.9rem;
+  color: var(--white);
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.service-desc {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  margin-top: 8px;
+  line-height: 1.5;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.35s;
+  opacity: 0;
+}
+
+.service-card:hover .service-desc {
+  max-height: 80px;
+  opacity: 1;
+}
+
+/* ── WHY US ── */
+.why-section {
+  background: var(--obsidian);
+  padding: 100px 0;
+}
+
+.why-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.why-image-block {
+  position: relative;
+}
+
+.why-main-img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(15%);
+}
+
+.why-accent-img {
+  position: absolute;
+  bottom: -32px;
+  right: -32px;
+  width: 48%;
+  height: 200px;
+  object-fit: cover;
+  border: 4px solid var(--obsidian);
+  filter: grayscale(10%);
+}
+
+.why-badge-overlay {
+  position: absolute;
+  top: 24px; left: 24px;
+  background: var(--gold);
+  color: var(--obsidian);
+  padding: 16px 20px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1.4rem;
+  text-align: center;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.why-badge-overlay small {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-top: 4px;
+  color: rgba(15,17,23,0.7);
+}
+
+.why-text .section-label { color: var(--silver); }
+.why-text .section-heading { color: var(--white); }
+.why-text .section-heading span { color: var(--silver-dark); }
+
+.why-list {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.why-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.why-item:last-child { border-bottom: none; }
+
+.why-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 2.4rem;
+  color: rgba(201,168,76,0.2);
+  line-height: 1;
+  min-width: 48px;
+}
+
+.why-item-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.why-item-text {
+  font-size: 0.88rem;
+  color: var(--silver-dark);
+  line-height: 1.6;
+}
+
+/* ── REVIEWS ── */
+.reviews-section {
+  background: var(--off-white);
+  padding: 100px 60px;
+}
+
+.reviews-section .section-heading { max-width: 640px; margin-bottom: 56px; }
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: var(--silver);
+}
+
+.review-card {
+  background: var(--white);
+  padding: 40px 44px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s;
+}
+
+.review-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.1); }
+
+.review-card::before {
+  content: '"';
+  position: absolute;
+  top: -10px; right: 24px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9rem;
+  font-weight: 900;
+  color: rgba(201,168,76,0.06);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.review-stars {
+  color: var(--gold);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.review-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--steel);
+  margin-bottom: 24px;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.review-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--obsidian);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.review-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--obsidian);
+}
+
+.review-badge {
+  font-size: 0.72rem;
+  color: var(--silver-dark);
+  letter-spacing: 0.04em;
+}
+
+.google-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--silver-dark);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ── BEFORE / AFTER ── */
+.transform-section {
+  background: var(--white);
+  padding: 100px 60px;
+}
+
+.before-after-wrap {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--silver-light);
+  position: relative;
+}
+
+.ba-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.ba-img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  display: block;
+}
+
+.ba-label {
+  position: absolute;
+  bottom: 0; left: 0;
+  background: var(--obsidian);
+  padding: 12px 24px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--silver);
+}
+
+.ba-divider {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 56px;
+  height: 56px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 0.6rem;
+  color: var(--obsidian);
+  letter-spacing: 0.1em;
+  text-align: center;
+  box-shadow: 0 0 0 6px var(--white), 0 0 0 8px var(--silver-light);
+}
+
+/* ── FORM ── */
+.form-section {
+  background: var(--obsidian);
+  position: relative;
+  overflow: hidden;
+}
+
+.form-section::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%;
+  height: 100%;
+  background: url('https://static.wixstatic.com/media/c6c86a_7d1feca40cc945788d5f2f2b0d1db369f000.jpg/v1/fill/w_532,h_929,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_auto/c6c86a_7d1feca40cc945788d5f2f2b0d1db369f000.jpg') center/cover no-repeat;
+  opacity: 0.12;
+}
+
+.form-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 100px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+.form-left .section-label { color: var(--silver); }
+.form-left .section-heading { color: var(--white); }
+.form-left .section-heading span { color: var(--silver-dark); }
+
+.form-promise {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.promise-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.9rem;
+  color: var(--silver);
+}
+
+.promise-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.contact-strip {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.contact-strip-phone {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 2.4rem;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+  display: block;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contact-strip-phone:hover { color: var(--white); }
+
+.contact-strip-label {
+  font-size: 0.78rem;
+  color: var(--silver-dark);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* Form styles */
+.lead-form {
+  background: var(--white);
+  padding: 44px 40px;
+}
+
+.form-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--obsidian);
+  margin-bottom: 6px;
+}
+
+.form-subtitle {
+  font-size: 0.85rem;
+  color: var(--silver-dark);
+  margin-bottom: 32px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--off-white);
+  border: 1.5px solid var(--silver-light);
+  border-radius: 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--obsidian);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  appearance: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--obsidian);
+  background: var(--white);
+}
+
+.form-group textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.form-submit {
+  width: 100%;
+  padding: 16px;
+  background: var(--obsidian);
+  color: var(--white);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  transition: background 0.2s, transform 0.15s;
+  margin-top: 8px;
+}
+
+.form-submit:hover {
+  background: var(--gold);
+  color: var(--obsidian);
+  transform: translateY(-1px);
+}
+
+.form-note {
+  font-size: 0.75rem;
+  color: var(--silver-dark);
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* ── SERVICE AREA ── */
+.area-strip {
+  background: var(--silver-light);
+  padding: 28px 60px;
+  text-align: center;
+  border-top: 1px solid var(--silver);
+}
+
+.area-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--silver-dark);
+  margin-bottom: 8px;
+}
+
+.area-list {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  color: var(--steel);
+  text-transform: uppercase;
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--obsidian);
+  padding: 40px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.footer-logo span { color: var(--gold); }
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.footer-links a {
+  font-size: 0.78rem;
+  color: var(--silver-dark);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--white); }
+
+.footer-copy {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.04em;
+}
+
+/* ── FLOATING CTA ── */
+.float-cta {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.float-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 22px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.28);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.float-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.36);
+}
+
+.float-call {
+  background: var(--gold);
+  color: var(--obsidian);
+}
+
+.float-form {
+  background: var(--obsidian);
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+body.js-loaded .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+body.js-loaded .reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .hero-content { padding: 120px 32px 80px; }
+  .section { padding: 70px 32px; }
+  .reviews-section, .transform-section, .form-section .form-inner { padding: 70px 32px; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-inner { grid-template-columns: 1fr; gap: 48px; }
+  .why-accent-img { display: none; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .before-after-wrap { grid-template-columns: 1fr; }
+  .form-inner { grid-template-columns: 1fr; gap: 40px; }
+  .form-row { grid-template-columns: 1fr; }
+  .hero-stats { position: relative; flex-wrap: wrap; }
+  .hero-stat { flex: 1 1 50%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .footer { flex-direction: column; align-items: flex-start; }
+  .trust-strip { gap: 24px; padding: 18px 32px; }
+}
+</style>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <div class="nav-logo">Black <span>Diamond</span> Construction</div>
+  <div class="nav-cta">
+    <a href="tel:5096692760" class="nav-phone">(509) 669-2760</a>
+    <a href="#estimate" class="btn-primary">Free Estimate</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">5-Star Rated | Wenatchee Valley's Most Trusted</div>
+    <h1 class="hero-heading">
+      <em>Wenatchee's Premier</em>
+      Construction<br>Experts
+    </h1>
+    <p class="hero-sub">Roofing, general construction, concrete, and hardscape — done right the first time by licensed, bonded, and insured pros with 20+ years in the valley.</p>
+    <div class="hero-actions">
+      <a href="#estimate" class="btn-hero-primary">Get a Free Estimate</a>
+      <a href="tel:5096692760" class="btn-hero-secondary">&#9742; Call Now</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-number">20+</div>
+      <div class="hero-stat-label">Years Experience</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-number">500+</div>
+      <div class="hero-stat-label">Projects Completed</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-number">5.0</div>
+      <div class="hero-stat-label">Google Rating</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-number">100%</div>
+      <div class="hero-stat-label">Licensed &amp; Insured</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item">
+    <svg class="trust-icon" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+    Licensed &amp; Bonded
+  </div>
+  <div class="trust-item">
+    <svg class="trust-icon" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+    Fully Insured
+  </div>
+  <div class="trust-item">
+    <svg class="trust-icon" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+    Free Estimates
+  </div>
+  <div class="trust-item">
+    <svg class="trust-icon" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+    Locally Owned in Wenatchee
+  </div>
+  <div class="trust-item">
+    <svg class="trust-icon" viewBox="0 0 24 24"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+    5-Star Google Rating
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="services-section">
+  <div class="section">
+    <div class="section-label reveal">What We Build</div>
+    <h2 class="section-heading reveal">Our <span>Services</span></h2>
+  </div>
+  <div class="services-grid reveal">
+
+    <div class="service-card">
+      <img class="service-card-img"
+        src="https://static.wixstatic.com/media/c6c86a_eb76ded4e4c94ec788e4cf42bc8d53ac~mv2.jpg/v1/fill/w_894,h_340,fp_0.50_0.50,q_80,usm_0.66_1.00_0.01,enc_auto/IMG_3908%206_JPG.jpg"
+        alt="Roofing services Wenatchee">
+      <div class="service-card-overlay"></div>
+      <div class="service-card-content">
+        <span class="service-tag">Residential &amp; Commercial</span>
+        <div class="service-name">Roofing</div>
+        <div class="service-desc">Repairs, full replacements, and new installations. TPO flat, shingle, and metal roofing systems. We handle insurance claims start to finish.</div>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img class="service-card-img"
+        src="https://static.wixstatic.com/media/c6c86a_368c8a42e16a429692ba3cb3d4563733~mv2.jpg/v1/fill/w_793,h_372,fp_0.99_1.00,q_80,usm_0.66_1.00_0.01,enc_auto/Image%2017.jpg"
+        alt="General construction Wenatchee">
+      <div class="service-card-overlay"></div>
+      <div class="service-card-content">
+        <span class="service-tag">Full-Scale Builds</span>
+        <div class="service-name">General Construction</div>
+        <div class="service-desc">From small upgrades to large-scale commercial projects. Clear communication, quality craftsmanship, on-time delivery.</div>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img class="service-card-img"
+        src="https://static.wixstatic.com/media/c6c86a_83fbc96254a5476f870241dc697792a0~mv2.jpeg/v1/fill/w_793,h_376,fp_0.19_0.54,q_80,usm_0.66_1.00_0.01,enc_auto/IMG_4830%206.jpeg"
+        alt="Concrete and hardscape Wenatchee">
+      <div class="service-card-overlay"></div>
+      <div class="service-card-content">
+        <span class="service-tag">Outdoor Spaces</span>
+        <div class="service-name">Hardscape &amp; Concrete</div>
+        <div class="service-desc">Driveways, patios, retaining walls, sidewalks, and custom outdoor living spaces built for decades of performance.</div>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img class="service-card-img"
+        src="https://static.wixstatic.com/media/c6c86a_e6b159655b44415f825db8fbd914ab85~mv2.jpg/v1/fill/w_795,h_375,fp_0.18_0.55,q_80,usm_0.66_1.00_0.01,enc_auto/475306570_619358893898133_4495234485854049653_n.jpg"
+        alt="Concrete Wenatchee">
+      <div class="service-card-overlay"></div>
+      <div class="service-card-content">
+        <span class="service-tag">Driveways &amp; Foundations</span>
+        <div class="service-name">Concrete</div>
+        <div class="service-desc">Foundations, driveways, sidewalks, and slabs poured to spec. Clean finishes matched to existing structures.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- WHY US -->
+<section class="why-section">
+  <div class="why-inner">
+    <div class="why-image-block reveal">
+      <img class="why-main-img"
+        src="https://static.wixstatic.com/media/c6c86a_15ebcdcdc6ea40138e8b0ebf792fbc43~mv2.jpg/v1/fill/w_853,h_752,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_auto/4S7A4412%206_JPG.jpg"
+        alt="Black Diamond Construction crew Wenatchee">
+      <img class="why-accent-img"
+        src="https://static.wixstatic.com/media/c6c86a_0a9749a42b674c21b856aa03ea13d9df~mv2.jpg/v1/fill/w_764,h_740,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_auto/548272813_793610929806261_618429452863168130_n.jpg"
+        alt="Black Diamond Construction office Wenatchee">
+      <div class="why-badge-overlay">
+        20+<small>Years in the Valley</small>
+      </div>
+    </div>
+    <div class="why-text reveal">
+      <div class="section-label">Why Black Diamond</div>
+      <h2 class="section-heading">Built Different.<br><span>Built to Last.</span></h2>
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-num">01</div>
+          <div>
+            <div class="why-item-title">Insurance Claim Specialists</div>
+            <div class="why-item-text">We handle the entire insurance process for roof and storm damage claims so you don't have to deal with the headache.</div>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">02</div>
+          <div>
+            <div class="why-item-title">Locally Rooted, Community Driven</div>
+            <div class="why-item-text">Based at 611 S Wenatchee Ave. We know this valley, we live here, and we stand behind every project we complete.</div>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">03</div>
+          <div>
+            <div class="why-item-title">Transparent Process, Zero Surprises</div>
+            <div class="why-item-text">Detailed scopes, clear timelines, and honest communication from estimate to final walk-through.</div>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">04</div>
+          <div>
+            <div class="why-item-title">Licensed, Bonded &amp; Insured</div>
+            <div class="why-item-text">Full coverage protects your property and gives you complete peace of mind on every project.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section">
+  <div style="max-width:1320px;margin:0 auto;">
+    <div class="section-label reveal">What Clients Say</div>
+    <h2 class="section-heading reveal">Real Reviews.<br><span>Real Wenatchee Homeowners.</span></h2>
+    <div class="reviews-grid reveal">
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Lorenzo and his crew did an amazing job for us! The new expanded driveway looks amazing. I would recommend Black Diamond Construction without hesitation.</p>
+        <div class="review-author">
+          <div class="review-avatar">RE</div>
+          <div>
+            <div class="review-name">Robert Everett</div>
+            <div class="review-badge">Concrete / Hardscape Project</div>
+          </div>
+          <div class="google-badge">Google &#9733;</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Lorenzo and his team did an excellent job replacing my roof! They were also very helpful getting my claim approved through my insurance. They basically handled it all. This whole process was stress free for me.</p>
+        <div class="review-author">
+          <div class="review-avatar">JA</div>
+          <div>
+            <div class="review-name">Jesus Arroyo</div>
+            <div class="review-badge">Roof Replacement + Insurance</div>
+          </div>
+          <div class="google-badge">Google &#9733;</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Black Diamond Concrete poured two patios at my house; one in front and one in back. They prepped correctly and matched lines of existing concrete. The finish looked great. Very happy with the product and customer service.</p>
+        <div class="review-author">
+          <div class="review-avatar">TW</div>
+          <div>
+            <div class="review-name">Tore Werner</div>
+            <div class="review-badge">Concrete Patio Project</div>
+          </div>
+          <div class="google-badge">Google &#9733;</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Lorenzo and his crew did an excellent job replacing our wind damaged roof. They were fast and efficient and were a big help with navigating the insurance claim. I would highly recommend them.</p>
+        <div class="review-author">
+          <div class="review-avatar">JC</div>
+          <div>
+            <div class="review-name">Jennifer Cemensky</div>
+            <div class="review-badge">Storm Damage Roof Replacement</div>
+          </div>
+          <div class="google-badge">Google &#9733;</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CREW BANNER -->
+<div style="position:relative;overflow:hidden;height:320px;background:var(--obsidian);">
+  <img src="https://static.wixstatic.com/media/c6c86a_3c0325d5fb68447f8cc6694b14522e3c~mv2.jpg/v1/fill/w_798,h_813,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_auto/602911155_872506115250075_2884942849332710416_n_edited.jpg"
+    alt="Black Diamond Construction team"
+    style="width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:0.55;display:block;">
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;">
+    <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Locally Owned &bull; Wenatchee Valley</div>
+    <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,5vw,3.6rem);text-transform:uppercase;color:var(--white);line-height:1;letter-spacing:-0.01em;">Your Neighbors.<br><span style="color:var(--silver);">Your Contractors.</span></div>
+    <a href="#estimate" style="margin-top:28px;display:inline-block;padding:13px 36px;background:var(--gold);color:var(--obsidian);font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:background 0.2s;">Get Your Free Estimate &rarr;</a>
+  </div>
+</div>
+
+<!-- BEFORE / AFTER -->
+<section class="transform-section">
+  <div style="max-width:1320px;margin:0 auto;">
+    <div class="section-label reveal">See the Results</div>
+    <h2 class="section-heading reveal">Before &amp; <span>After</span></h2>
+    <div class="before-after-wrap reveal">
+      <div class="ba-panel">
+        <img class="ba-img"
+          src="https://static.wixstatic.com/media/c6c86a_df53cd08b6b341579453d4e751ce8ae8~mv2.jpg/v1/fill/w_829,h_535,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/BEFORE.jpg"
+          alt="Before roof replacement">
+        <div class="ba-label">Before</div>
+      </div>
+      <div class="ba-panel">
+        <img class="ba-img"
+          src="https://static.wixstatic.com/media/c6c86a_4e5872b1cd9c468a92fe2094f73b0c75~mv2.png/v1/fill/w_829,h_535,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/494937360_691730123327676_321699751874629023_n.png"
+          alt="After roof replacement">
+        <div class="ba-label">After</div>
+      </div>
+      <div class="ba-divider">VS</div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="estimate">
+  <div class="form-inner">
+    <div class="form-left">
+      <div class="section-label">Ready to Start?</div>
+      <h2 class="section-heading">Get Your Free<br><span>Estimate Today</span></h2>
+      <div class="form-promise">
+        <div class="promise-item">
+          <div class="promise-icon">&#10003;</div>
+          Response within 24 hours guaranteed
+        </div>
+        <div class="promise-item">
+          <div class="promise-icon">&#10003;</div>
+          No-pressure, detailed estimate at no cost
+        </div>
+        <div class="promise-item">
+          <div class="promise-icon">&#10003;</div>
+          We handle insurance claims on your behalf
+        </div>
+        <div class="promise-item">
+          <div class="promise-icon">&#10003;</div>
+          Serving Wenatchee, Chelan, Leavenworth &amp; beyond
+        </div>
+      </div>
+      <div class="contact-strip">
+        <a href="tel:5096692760" class="contact-strip-phone">(509) 669-2760</a>
+        <div class="contact-strip-label">Or call us directly — we answer fast</div>
+      </div>
+    </div>
+
+    <div class="form-right">
+      <div class="lead-form">
+        <div class="form-title">Free Project Estimate</div>
+        <div class="form-subtitle">Tell us about your project. We'll get back to you within 24 hours.</div>
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
+          <input type="hidden" name="subject" value="New Estimate Request - Black Diamond Construction">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" placeholder="John Smith" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" placeholder="(509) 000-0000" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" placeholder="john@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="service">Service Needed *</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Select a service...</option>
+              <option>Roofing - Repair</option>
+              <option>Roofing - Replacement</option>
+              <option>Roofing - New Installation</option>
+              <option>General Construction</option>
+              <option>Concrete Work</option>
+              <option>Hardscape / Patio</option>
+              <option>Insurance Claim Assistance</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="address">Property Address</label>
+            <input type="text" id="address" name="address" placeholder="123 Main St, Wenatchee, WA">
+          </div>
+          <div class="form-group">
+            <label for="message">Project Details</label>
+            <textarea id="message" name="message" placeholder="Briefly describe your project..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Request Free Estimate &rarr;</button>
+          <p class="form-note">&#128274; Your information is secure and never shared.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREA -->
+<div class="area-strip">
+  <div class="area-label">Service Area</div>
+  <div class="area-list">Wenatchee &bull; Chelan &bull; Manson &bull; Orondo &bull; Cashmere &bull; Leavenworth &bull; Waterville &bull; Mansfield &bull; Quincy &bull; Cle Elum</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">Black <span>Diamond</span> Construction</div>
+  <ul class="footer-links">
+    <li><a href="tel:5096692760">(509) 669-2760</a></li>
+    <li><a href="https://www.wenatcheeblackdiamond.com">Website</a></li>
+    <li><a href="https://www.wenatcheeblackdiamond.com/Services">Services</a></li>
+  </ul>
+  <div class="footer-copy">611 S Wenatchee Ave, Wenatchee, WA 98801 &bull; Licensed &bull; Bonded &bull; Insured</div>
+</footer>
+
+<!-- FLOATING CTA -->
+<div class="float-cta">
+  <a href="tel:5096692760" class="float-btn float-call">&#9742; Call Now</a>
+  <a href="#estimate" class="float-btn float-form">Free Estimate</a>
+</div>
+
+<script>
+// Scroll reveal
+document.body.classList.add('js-loaded');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Stagger children of grids
+document.querySelectorAll('.services-grid .service-card, .reviews-grid .review-card').forEach((el, i) => {
+  el.style.transitionDelay = `${i * 0.08}s`;
+  el.classList.add('reveal');
+  observer.observe(el);
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
